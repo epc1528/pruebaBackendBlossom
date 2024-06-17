@@ -1,14 +1,21 @@
 
 export const typeDefs = `
 type Episode {
+    id:ID
     name: String
     episode: String
 }
 
 type Location {
+    id:ID
     name: String
     type: String
     dimension: String
+}
+
+type Info {
+    count:ID
+    character:[Character]
 }
 
 type Character {
@@ -29,8 +36,9 @@ type Character {
 }
 
 type Query {
-    character(page:ID, order:ID): [Character]
-    characterFilter(page:ID, order:ID, filter:String, char:String): [Character]
+    character(page:ID, order:ID): Info
+    characterFilter(page:ID, order:ID, filter:String, char:String): Info
+    characters(page:ID): Character
 }
 
 type Mutation {

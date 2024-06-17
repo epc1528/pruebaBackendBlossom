@@ -28,4 +28,36 @@ export class characterController {
     const mirar = await characterController.update(filter, item)
     return mirar;
   }
+
+  async getCharacterUnique(arg: Object | null): Promise<CharacterController> {
+    const characterRepository = new CharacterRepository();
+    const characterService = new CharacterService(characterRepository);
+    const characterController = new CharacterController(characterService);
+    const mirar = await characterController.getUnique(arg)
+    return mirar;
+  }
+
+  async getLocation(id:number): Promise<CharacterController> {
+    const characterRepository = new CharacterRepository();
+    const characterService = new CharacterService(characterRepository);
+    const characterController = new CharacterController(characterService);
+    const mirar = await characterController.getLocation(id)
+    return mirar;
+  }
+
+  async getOrigin(id:number): Promise<CharacterController> {
+    const characterRepository = new CharacterRepository();
+    const characterService = new CharacterService(characterRepository);
+    const characterController = new CharacterController(characterService);
+    const mirar = await characterController.getOrigin(id)
+    return mirar;
+  }
+
+  async getEpisode(id:number): Promise<CharacterController> {
+    const characterRepository = new CharacterRepository();
+    const characterService = new CharacterService(characterRepository);
+    const characterController = new CharacterController(characterService);
+    const mirar = await characterController.getEpisode(id)
+    return mirar;
+  }
 }

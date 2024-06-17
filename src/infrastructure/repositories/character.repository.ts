@@ -3,6 +3,7 @@ import CharacterOriginModel from '../orm/mysql/models/characterorigin.model';
 import CharacterLocationModel from '../orm/mysql/models/characterlocation.model';
 import CharacterEpisodeModel from '../orm/mysql/models/characterepisode.model';
 import EpisodeModel from '../orm/mysql/models/episode.model';
+import LocationModel from '../orm/mysql/models/location.model';
 
 export class CharacterRepository  {
 
@@ -23,7 +24,15 @@ export class CharacterRepository  {
   async find(arg:Object | null) {
     try {
       const character: any = await CharacterModel.findAndCountAll({raw:true, ...arg});
-    return character.rows;
+    return [character.rows, character.count];
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async findByid(arg:number) {
+    try {
+      return  await CharacterModel.findByPk(arg, {raw:true});
     } catch (error) {
       console.log(error)
     }
@@ -94,6 +103,30 @@ export class CharacterRepository  {
           }
         })
       }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async findByLocation(arg:number) {
+    try {
+      return  await CharacterModel.findOne({where:{id: arg}, include: LocationModel,raw:true});
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async findByOrigin(arg:number) {
+    try {
+      return  await CharacterModel.findOne({where:{id: arg}, include: LocationModel,raw:true});
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async findByEpisode(arg:number) {
+    try {
+      return  await CharacterModel.findAll({where:{id: arg}, include: EpisodeModel, raw:true});
     } catch (error) {
       console.log(error)
     }

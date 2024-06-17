@@ -27,4 +27,36 @@ export class CharacterController implements Controller {
       return serverError(error);
     }
   }
+
+  async getUnique(arg:Object | null): Promise<any> {
+    try {
+      return await this.testService.getCharacterUnique(arg);
+    } catch (error) {
+      return serverError(error);
+    }
+  }
+
+  async getOrigin(arg:number): Promise<any> {
+    try {
+      return await this.testService.getCharacterOrigin(arg);
+    } catch (error) {
+      return serverError(error);
+    }
+  }
+
+  async getLocation(arg:number): Promise<any> {
+    try {
+      return await this.testService.getCharacterLocation(arg);
+    } catch (error) {
+      return serverError(error);
+    }
+  }
+
+  async getEpisode(arg:number): Promise<any> {
+    try {
+      return await this.testService.getCharacterEpisode(arg);
+    } catch (error) {
+      return serverError(error);
+    }
+  }
 }
