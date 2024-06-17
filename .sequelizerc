@@ -1,0 +1,8 @@
+const { resolve } = require('path');
+
+module.exports = {
+  config: resolve('src/infrastructure/orm/mysql', 'config.js'),
+  'models-path': resolve('src/infrastructure/orm/mysql', 'models'),
+  'seeders-path': resolve('src/infrastructure/orm/mysql', 'seeders'),
+  'migrations-path': resolve('src/infrastructure/orm/mysql', 'migrations'),
+};
