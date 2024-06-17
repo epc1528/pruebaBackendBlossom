@@ -1,0 +1,32 @@
+
+# PruebaBackendBlossom
+
+1. configurar las variables de entrono en el archivo .env
+
+2. instalar los modulos del proyecto.
+
+
+
+```bash
+  npm install
+```
+3. ejecutar las migraciones.
+```bash
+  npm run migration
+```
+4. ejecutar el seeds
+```bash
+  npm run seed
+```
+5. para correr la API en desearrollo debes ejecutar el comando 
+```bash
+  npm run dev
+```
+6. y para desarrollo primero debes ejecutar el comando
+```bash
+  npm run build
+```
+y despues
+```bash
+  npm run start
+```
